@@ -1,0 +1,33 @@
+/*
+ * HelloTraceV1Test
+ * advanced
+ *
+ * Version 0.1
+ *
+ * Created by 강래민 on 2021-11-21.
+ *
+ * Copyright © 2021 raemerrr. All rights reserved.
+ */
+package hello.advanced.trace.hellotrace;
+
+import hello.advanced.trace.TraceStatus;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class HelloTraceV1Test {
+
+    @Test
+    void begin_end() {
+        HelloTraceV1 trace = new HelloTraceV1();
+        TraceStatus status = trace.begin("hello");
+        trace.end(status);
+    }
+
+    @Test
+    void begin_exception() {
+        HelloTraceV1 trace = new HelloTraceV1();
+        TraceStatus status = trace.begin("hello");
+        trace.exception(status, new IllegalStateException());
+    }
+}
